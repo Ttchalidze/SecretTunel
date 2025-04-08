@@ -1,6 +1,12 @@
+import { useAuth } from "./AuthContext";
+
 /** Users can enter their name to receive a token from the API. */
 export default function Entrance() {
-  // TODO: call signup when form is submitted
+  const { singup } = useAuth();
+  const speakName = (formData) => {
+    const name = formData.get("name");
+    singup({ username: name });
+  };
 
   return (
     <>
